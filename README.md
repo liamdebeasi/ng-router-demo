@@ -10,6 +10,6 @@
 6. Identify the "DOM Nodes" and "JS event listeners" sections.
 7. Click the "Go to inner" link.
 8. Click the "Go back" link.
-9. Repeat steps 7 and 8 several times. Observe that the "DOM Nodes" and "JS event listeners" graphs eventually form a saw tooth pattern.
+9. Repeat steps 7 and 8 several times. Observe that the "DOM Nodes" and "JS event listeners" graphs eventually form a saw tooth pattern. Note: You may need to click quickly for the saw tooth pattern to appear.
 
 ![Screenshot of Performance Monitor showing the reported issue](./perf-monitor.png)
