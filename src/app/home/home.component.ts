@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { InnerComponent } from '../inner/inner.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private activated: any;
+  constructor(
+    private location: ViewContainerRef
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  create() {
+    if (this.activated) {
+      return;
+    }
+    this.activated = this.location.createComponent(InnerComponent, { index: this.location.length });
+  }
+
+  destroy() {
+    if (this.activated) {
+      this.activated.destroy();
+      this.activated = undefined;
+    }
   }
 
 }

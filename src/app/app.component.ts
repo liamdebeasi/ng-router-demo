@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { InnerComponent } from './inner/inner.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'routertest';
+  private activated: any;
+  constructor(
+    private location: ViewContainerRef
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  create() {
+    this.activated = this.location.createComponent(InnerComponent, { index: this.location.length });
+  }
+
+  destroy() {
+    if (this.activated) {
+      this.activated.destroy();
+      this.activated = undefined;
+    }
+  }
 }
